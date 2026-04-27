@@ -1,0 +1,5 @@
+name: JustTPA
+version: '${version}'
+
+main: com.github.eypik.justTPA.JustTPA
+api-version: '26.1'
