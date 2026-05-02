@@ -3,6 +3,8 @@ package com.github.eypik.justTPA;
 import com.github.eypik.justTPA.command.TpaCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class JustTPA extends JavaPlugin {
 
     @Override
@@ -12,6 +14,7 @@ public final class JustTPA extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        System.out.println("bye bye!");
     }
 
     /**
@@ -20,8 +23,8 @@ public final class JustTPA extends JavaPlugin {
     private void registerCommands() {
         TpaCommand tpaCommand = new TpaCommand();
         if (getCommand("tpa") != null) {
-            getCommand("tpa").setExecutor(tpaCommand);
-            getCommand("tpa").setTabCompleter(tpaCommand);
+            Objects.requireNonNull(getCommand("tpa")).setExecutor(tpaCommand);
+            Objects.requireNonNull(getCommand("tpa")).setTabCompleter(tpaCommand);
         }
     }
 }
