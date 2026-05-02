@@ -3,3 +3,8 @@ version: '${version}'
 
 main: com.github.eypik.justTPA.JustTPA
 api-version: '26.1'
+
+commands:
+  tpa:
+    description: TPA command entrypoint.
+    usage: /tpa <player>|accept <player>|reject <player>|toggle

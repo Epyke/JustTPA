@@ -1,16 +1,30 @@
 package com.github.eypik.justTPA;
 
+import com.github.eypik.justTPA.command.TpaCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class JustTPA extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        registerCommands();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        System.out.println("bye bye!");
+    }
+
+    /**
+     * Registers plugin commands.
+     */
+    private void registerCommands() {
+        TpaCommand tpaCommand = new TpaCommand();
+        if (getCommand("tpa") != null) {
+            Objects.requireNonNull(getCommand("tpa")).setExecutor(tpaCommand);
+            Objects.requireNonNull(getCommand("tpa")).setTabCompleter(tpaCommand);
+        }
     }
 }
